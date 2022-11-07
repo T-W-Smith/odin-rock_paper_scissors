@@ -36,17 +36,19 @@ function playARound (playerSelection, computerSelection) {
         playerScore++;
         return "You win! Rock beats Scissors"
     }
-    else {
+    else if (computerSelection === playerSelection) {
         return "Its a Tie!"
+    }
+    else {
+        return "Invalid Input!"
     }
 }
 
-function game() {
+function game () {
     for (let i = 0; i < 5; i++) {
         const playerChoice = prompt("What do you choose?").toLowerCase();
         const computerChoice = getComputerChoice();
-        playARound(playerChoice, computerChoice);
-        console.log("playerscore: " + playerScore + "   ComputerScore: " + computerScore);
+        console.log(playARound(playerChoice, computerChoice));
     }
 
     if (playerScore > computerScore) {
