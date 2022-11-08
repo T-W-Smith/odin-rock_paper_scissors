@@ -40,12 +40,13 @@ function playARound (playerSelection, computerSelection) {
         return "Its a Tie!"
     }
     else {
+        roundCount--;
         return "Invalid Input!"
     }
 }
 
 function game () {
-    for (let i = 0; i < 5; i++) {
+    for (roundCount; roundCount < 5; roundCount++) {
         const playerChoice = prompt("What do you choose?").toLowerCase();
         const computerChoice = getComputerChoice();
         console.log(playARound(playerChoice, computerChoice));
@@ -62,6 +63,7 @@ function game () {
     }
 }
 
+let roundCount = 0;
 let playerScore = 0;
 let computerScore = 0;
 console.log(game());
