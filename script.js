@@ -1,3 +1,21 @@
+let roundCount = 0;
+let playerScore = 0;
+let computerScore = 0;
+
+var rockBtn = document.getElementById('rock');
+var paperBtn = document.getElementById('paper');
+var scissorsBtn = document.getElementById('scissors');
+
+rockBtn.addEventListener('click', function(){
+    playARound('rock', getComputerChoice());
+});
+paperBtn.addEventListener('click', function(){
+    playARound('paper', getComputerChoice());
+});
+scissorsBtn.addEventListener('click', function(){
+    playARound('scissors', getComputerChoice());
+});
+
 function getComputerChoice () {
     let randChoice = Math.floor(Math.random() * 3);
     if (randChoice === 0) {
@@ -12,6 +30,7 @@ function getComputerChoice () {
 }
 
 function playARound (playerSelection, computerSelection) {
+    console.log(playerSelection + "   " + computerSelection);
     if (computerSelection === "rock" && playerSelection === "scissors") {
         computerScore++;
         return "You Lose! Rock beats Scissors"
@@ -46,11 +65,11 @@ function playARound (playerSelection, computerSelection) {
 }
 
 function game () {
-    for (roundCount; roundCount < 5; roundCount++) {
+    /*for (roundCount; roundCount < 5; roundCount++) {
         const playerChoice = prompt("What do you choose?").toLowerCase();
         const computerChoice = getComputerChoice();
         console.log(playARound(playerChoice, computerChoice));
-    }
+    }*/
 
     if (playerScore > computerScore) {
         return "You win!"
@@ -62,8 +81,3 @@ function game () {
         return "Its a Tie!"
     }
 }
-
-let roundCount = 0;
-let playerScore = 0;
-let computerScore = 0;
-console.log(game());
