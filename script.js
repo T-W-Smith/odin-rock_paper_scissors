@@ -8,6 +8,7 @@ var scissorsBtn = document.getElementById('scissors');
 var roundResults = document.getElementById('round');
 var scoreResults = document.getElementById('score');
 var winnerResults = document.getElementById('winner');
+var askReset = document.getElementById('ask-reset');
 
 scoreResults.setAttribute('style', 'white-space: pre')
 
@@ -79,6 +80,7 @@ function game () {
         rockBtn.disabled = true;
         paperBtn.disabled = true;
         scissorsBtn.disabled = true;
+        resetGame();
     }
 
     if (computerScore >= 5) {
@@ -86,5 +88,36 @@ function game () {
         rockBtn.disabled = true;
         paperBtn.disabled = true;
         scissorsBtn.disabled = true;
+        resetGame();
     }
+}
+
+function resetGame () {
+    var resetText = document.createElement('h2');
+    resetText.id = 'reset-text';
+    resetText.appendChild(document.createTextNode('Would you like to play again?'));
+    askReset.appendChild(resetText);
+
+    var yesBtn = document.createElement('button');
+    yesBtn.appendChild(document.createTextNode('Yes'));
+    yesBtn.id = 'yes';
+    var noBtn = document.createElement('button');
+    noBtn.appendChild(document.createTextNode('No'));
+    noBtn.id = 'no';
+    askReset.appendChild(yesBtn);
+    askReset.appendChild(noBtn);
+
+    yesBtn.addEventListener('click', yesReset);
+    noBtn.addEventListener('click', noReset);
+    
+}
+
+function yesReset () {
+    location.reload();
+}
+
+function noReset () {
+    askReset.removeChild(document.getElementById('reset-text'));
+    askReset.removeChild(document.getElementById('yes'));
+    askReset.removeChild(document.getElementById('no'));
 }
