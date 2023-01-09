@@ -5,6 +5,7 @@ let computerScore = 0;
 var rockBtn = document.getElementById('rock');
 var paperBtn = document.getElementById('paper');
 var scissorsBtn = document.getElementById('scissors');
+var results = document.getElementById('text-results');
 
 rockBtn.addEventListener('click', function(){
     playARound('rock', getComputerChoice());
@@ -30,6 +31,7 @@ function getComputerChoice () {
 }
 
 function playARound (playerSelection, computerSelection) {
+    results.textContent = playerSelection + "   " + computerSelection
     console.log(playerSelection + "   " + computerSelection);
     if (computerSelection === "rock" && playerSelection === "scissors") {
         computerScore++;
