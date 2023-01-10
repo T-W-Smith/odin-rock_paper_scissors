@@ -5,10 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div class="container">
-            <div class="buttons">
+            <div class="welcome">
+                <h1>Lets play Rock, Paper, Scissors!</h1>
+            </div>
+            <div class="buttons" id="main-buttons">
                 <button id="rock">Rock</button>
                 <button id="paper">Paper</button>
                 <button id="scissors">Scissors</button>
@@ -18,9 +22,8 @@
                 <h3 id="score"></h1>
                 <h3 id="winner"></h2>
             </div>
-            <div class="reset">
-                <div id="ask-reset"></div>
-            </div>
+            <div id="reset-text"></div>
+            <div class="buttons" id="reset-buttons"></div>
         </div>
     </body>
 

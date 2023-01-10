@@ -8,7 +8,8 @@ var scissorsBtn = document.getElementById('scissors');
 var roundResults = document.getElementById('round');
 var scoreResults = document.getElementById('score');
 var winnerResults = document.getElementById('winner');
-var askReset = document.getElementById('ask-reset');
+var resetText = document.getElementById('reset-text')
+var resetBtns = document.getElementById('reset-buttons');
 
 scoreResults.setAttribute('style', 'white-space: pre')
 
@@ -93,10 +94,10 @@ function game () {
 }
 
 function resetGame () {
-    var resetText = document.createElement('h2');
-    resetText.id = 'reset-text';
-    resetText.appendChild(document.createTextNode('Would you like to play again?'));
-    askReset.appendChild(resetText);
+    var text = document.createElement('h2');
+    text.appendChild(document.createTextNode('Would you like to play again?'));
+    text.id = 'reset';
+    resetText.appendChild(text);
 
     var yesBtn = document.createElement('button');
     yesBtn.appendChild(document.createTextNode('Yes'));
@@ -104,8 +105,8 @@ function resetGame () {
     var noBtn = document.createElement('button');
     noBtn.appendChild(document.createTextNode('No'));
     noBtn.id = 'no';
-    askReset.appendChild(yesBtn);
-    askReset.appendChild(noBtn);
+    resetBtns.appendChild(yesBtn);
+    resetBtns.appendChild(noBtn);
 
     yesBtn.addEventListener('click', yesReset);
     noBtn.addEventListener('click', noReset);
@@ -117,7 +118,7 @@ function yesReset () {
 }
 
 function noReset () {
-    askReset.removeChild(document.getElementById('reset-text'));
-    askReset.removeChild(document.getElementById('yes'));
-    askReset.removeChild(document.getElementById('no'));
+    resetText.removeChild(document.getElementById('reset'));
+    resetBtns.removeChild(document.getElementById('yes'));
+    resetBtns.removeChild(document.getElementById('no'));
 }
