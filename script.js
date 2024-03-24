@@ -1,7 +1,9 @@
+// Score counters
 let roundCount = 0;
 let playerScore = 0;
 let computerScore = 0;
 
+// Elements
 var rockBtn = document.getElementById('rock');
 var paperBtn = document.getElementById('paper');
 var scissorsBtn = document.getElementById('scissors');
@@ -13,6 +15,7 @@ var resetBtns = document.getElementById('reset-buttons');
 
 scoreResults.setAttribute('style', 'white-space: pre')
 
+// Event listeners
 rockBtn.addEventListener('click', function(){
     playARound('rock', getComputerChoice());
 });
@@ -23,7 +26,9 @@ scissorsBtn.addEventListener('click', function(){
     playARound('scissors', getComputerChoice());
 });
 
+// Choice randomizer
 function getComputerChoice () {
+    // Generates a random number and returns a choice based on number
     let randChoice = Math.floor(Math.random() * 3);
     if (randChoice === 0) {
         return "rock"
@@ -36,6 +41,8 @@ function getComputerChoice () {
     }
 }
 
+// Compares the computers choice with the players choice
+// and determines who wins the round or if its a tie
 function playARound (playerSelection, computerSelection) {
     if (computerSelection === "rock" && playerSelection === "scissors") {
         computerScore++;
@@ -73,6 +80,8 @@ function playARound (playerSelection, computerSelection) {
     }
 }
 
+// Keeps track of the game score and determines who wins
+// the game out of 5 rounds
 function game () {
     scoreResults.textContent = 'Player score: ' + playerScore + '\r\nComputer score: ' + computerScore;
 
@@ -93,6 +102,7 @@ function game () {
     }
 }
 
+// Resets the game once a full game has finished
 function resetGame () {
     var text = document.createElement('h2');
     text.appendChild(document.createTextNode('Would you like to play again?'));
